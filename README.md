@@ -1,24 +1,53 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Usersテーブル
 
-Things you may want to cover:
+|Column                |   Type     |Options                  |
+|----------------------|------------|-------------------------|
+| nickname             | string     |null: false              |
+| email                | string     |null: false, unique: true|
+| encrypted_password   | string     |null: false              |
+| birthday             | date       |null: false              |
 
-* Ruby version
+### Association
+- has_many :photos
+- has_many :comments
+- has_one :profile
 
-* System dependencies
 
-* Configuration
+## Photosテーブル
+|Column                |    Type         |Options                         |
+|----------------------|-----------------|--------------------------------|
+| instruction          | text            |null: false                     |
+| category_id          | integer         |null: false                     |
+| country_id           | integer         |null: false                     | 
+| user                 | references      |null: false, foreign_key: true  |
 
-* Database creation
+### Association
+ - belongs_to :user
+ - has_many :comments
 
-* Database initialization
 
-* How to run the test suite
+ ## Commentsテーブル
+|Column                |    Type         |Options                         |
+|----------------------|-----------------|--------------------------------|
+| text                 | text            |null: false                     |
+| user                 | references      |null: false, foreign_key: true  |
+| photo                | references      |null: false, foreign_ket: true  |
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- belongs_to user
+- belongs_to photo
 
-* Deployment instructions
 
-* ...
+
+
+ ## Profilesテーブル
+|Column                |    Type         |Options                         |
+|----------------------|-----------------|--------------------------------|
+| instruction          | text            |null: false                     |
+| travel_history       | text            |null: false                     |
+| user                 | references      |null: false, foreign_key: true  |
+
+### Association
+- belongs_to :user
