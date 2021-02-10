@@ -10,12 +10,12 @@
 | birthday             | date       |null: false              |
 
 ### Association
-- has_many :photos
+- has_many :articles
 - has_many :comments
 - has_one :profile
 
 
-## Photosテーブル
+## Articlesテーブル
 |Column                |    Type         |Options                         |
 |----------------------|-----------------|--------------------------------|
 | instruction          | text            |null: false                     |
@@ -33,11 +33,11 @@
 |----------------------|-----------------|--------------------------------|
 | text                 | text            |null: false                     |
 | user                 | references      |null: false, foreign_key: true  |
-| photo                | references      |null: false, foreign_ket: true  |
+| article                | references      |null: false, foreign_ket: true  |
 
 ### Association
 - belongs_to user
-- belongs_to photo
+- belongs_to article
 
 
 
