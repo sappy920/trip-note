@@ -1,11 +1,21 @@
 class ArticlesController < ApplicationController
   def index
-    @article = Article.all
+    @articles = Article.all
   end
 
   def new
     @article = Article.new
   end
+
+  def create
+    @article = Article.create(article_params)
+    if @article.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
 
   private
 
