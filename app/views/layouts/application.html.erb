@@ -15,16 +15,28 @@
         <div class= "header__bar row">
            <h1 class="grid-6"><a href="/">Tripnote</a></h1>
            <% if user_signed_in? %>
-          <div class="user_nav grid-6">
-             <span><%= current_user.nickname %>
-               <ul class="user__info">
-                 <li>
-                  <%= link_to "マイページ", "/users/#{current_user.id}" %>
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                 </li>
-               </ul>
-             </span>
+           <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-item">
+            <%= link_to "投稿一覧", articles_path, class: "navbar-item button is-warning is-light" %>
           </div>
+          <div class="navbar-item">
+            <%= link_to "投稿する", new_article_path, class: "navbar-item button is-warning is-light" %>
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <%= link_to "マイページ", "#", class: "button is-warning is-light" %>
+                </p>
+                <p class="control">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <% else %>
           <div class="grid-6">
             <%= link_to "ログイン", new_user_session_path, class: "post" %>
@@ -33,6 +45,13 @@
         <% end %>
        </div>
      </header>
+
+     <div class='p-top'>
+       <%= image_tag "IMG_8332.png", class:"top-img" %>
+      </div>
+
+
+
      <%= yield %>
      <footer>
         <p>
