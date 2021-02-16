@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TripNote</title>
+    <title>tripnote</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <%= stylesheet_pack_tag 'application' %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <body>
+    <% if flash[:notice] %>
+      <div class="notification is-info">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
 
-<body>
-     <header class="header">
-        <div class= "header__bar row">
-           <h1 class="grid-6"><a href="/">Tripnote</a></h1>
-           <% if user_signed_in? %>
-           <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <% if flash[:alert] %>
+      <div class="notification is-danger">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+
+    <nav class="navbar is-primary">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-5" style="font-family: arial;">Tripnote</h1>
+        <% end %>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <% if user_signed_in? %>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-item">
             <%= link_to "投稿一覧", articles_path, class: "navbar-item button is-warning is-light" %>
           </div>
@@ -27,36 +50,35 @@
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
-                  <%= link_to "マイページ", "#", class: "button is-warning is-light" %>
+                  <%= link_to "マイページ", user_path(current_user), class: "button is-warningr is-light" %>
                 </p>
                 <p class="control">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-danger is-light" %>
                 </p>
               </div>
             </div>
           </div>
         </div>
-
-        <% else %>
-          <div class="grid-6">
-            <%= link_to "ログイン", new_user_session_path, class: "post" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+      <% else %>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-item">
+            <%= link_to "投稿一覧", articles_path, class: "navbar-item button is-warning is-light" %>
           </div>
-        <% end %>
-       </div>
-     </header>
-
-     <div class='p-top'>
-       <%= image_tag "IMG_8332.png", class:"top-img" %>
-      </div>
-
-
-
-     <%= yield %>
-     <footer>
-        <p>
-          Copyright Tripnote 2021.
-        </p>
-     </footer>
- </body>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
+                </p>
+                <p class="control">
+                  <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </nav>
+    <%= yield %>
+  </body>
 </html>

@@ -65,3 +65,4 @@ gem 'active_hash'
 
 gem 'pry-rails'
 
+gem "bulma-rails"
