@@ -1,13 +1,72 @@
-<%= form_with model: @article, url:articles_path, local: true do |f| %>
-  <div class="article-box">
-    投稿する
-    <%= f.text_area :instruction, class:"text", placeholder:"テキスト" %>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {class:"select-box", id:"article-category"})  %>
-    <%= f.collection_select(:country_id, Country.all, :id, :name, {class:"select-box", id:"article-country"})%>
-    <%= f.file_field :image, class: 'hidden' %>
-    <%= f.submit "投稿する" ,class:"btn" %>
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+
+  </header>
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">投稿内容を入力</h2>
+    <%= form_with model: @article, local: true do |f| %>
+    
+                 
+    <%# 画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        思い出の写真
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"article-image" %>
+      </div>
+    </div>
+    <%# /画像 %>
+
+    <%# 説明 %>
+    <div class="new-items">
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          写真の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :instruction, class:"items-text", id:"item-info", placeholder:"写真の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# 説明 %>
+
+    <%# カテゴリーと都道府県選択 %>
+    <div class="items-detail">
+      <div class="weight-bold-text">投稿の詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {class:"select-box", id:"article-category"}) %>
+        <div class="weight-bold-text">
+          都道府県
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:country_id, Country.all, :id, :name, {class:"select-box", id:"article-counrty"}) %>
+      </div>
+    </div>
+    <%# /カテゴリーと都道府県選択 %>
+
+
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "投稿する" , class:"sell-btn" %>
+      <%=link_to 'もどる', class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
   </div>
-<% end %>
+  <% end %>
+
+
+
+
+
+ 
 
 
 
