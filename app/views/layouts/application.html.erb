@@ -25,6 +25,7 @@
       </div>
     <% end %>
 
+
     <nav class="navbar is-primary">
       <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
@@ -41,19 +42,21 @@
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-item">
             <%= link_to "投稿一覧", articles_path, class: "navbar-item button is-warning is-light" %>
-          </div>
+
+         </div>
           <div class="navbar-item">
             <%= link_to "投稿する", new_article_path, class: "navbar-item button is-warning is-light" %>
           </div>
+
 
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
-                  <%= link_to "マイページ", user_path(current_user), class: "button is-warningr is-light" %>
+                  <%= link_to "マイページ","#", class: "button is-warning is-light" %>
                 </p>
                 <p class="control">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-danger is-light" %>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
                 </p>
               </div>
             </div>
@@ -82,3 +85,4 @@
     <%= yield %>
   </body>
 </html>
+
