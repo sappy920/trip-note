@@ -1,22 +1,39 @@
-<h1>投稿一覧</h1>
-<%= link_to "投稿する", new_article_path, class:"post" %>
+<<<<<<< Updated upstream
+<section class="section">
+  <article class="media">
+    <div class="media-content">
+      <div class="content has-text-centered">
+        <p>
+          <strong class="is-size-1" style="font-family: arial;">Tripnote</strong>
+        </p>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-5">
+          <br>
+          <%= link_to "投稿を見てみる", article_path, class: "button is-warning is-light is-fullwidth" %>
+          <br>
+        </div>
+      </div>
 
-<% @articles.each do |article| %>
-  <div class="article">
-    <div class="article-category">
-      <%= article.category.name %>
     </div>
-    <div class="article-country">
-      <%= article.country.name %>
+  </article>
+  <br>
+  <div class="columns is-centered">
+    <div class="column">
+      <figure>
+        <div class="main-image"></div>
+      </figure>
     </div>
+
         <div class="article-text">
       <%= article.instruction %>
     </div>
 
-    <div class="article-image">
-      <%= image_tag article.image, class: "article-image"%>
+    <div class="column is-6">
+       <figure class="image is-5by4">
+           <%= image_tag article.image, class: "article-image"%>
+       </figure>
+
     </div>
-
-
   </div>
-<% end %>
+</section>

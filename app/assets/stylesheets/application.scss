@@ -14,4 +14,10 @@
  *= require_self
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "bootstrap";
+
+@import "bulma";
+
+.main-image {
+	height: 900px;
+	background-image: url(top_image.png);
+}
