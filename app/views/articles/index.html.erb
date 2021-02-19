@@ -1,23 +1,30 @@
-<div class="article-contents">
-  <h2 class='title'>投稿一覧</h2>
-  <ul class='article-lists'>
+ <h2 class='title'>投稿一覧</h2>
 
-  <div class="columns">
-    <div class="column">
+  <div class="card-content">
+    <div class="content">
        <% @articles.each do |article| %>
          <div class='article-img-content'>
            <%= image_tag  article.image, class: "article-img" %>
          </div>
-         <div class="article-info">
-           <div class="article-category">
-            <h2>カテゴリー</h2><span class="tag is-primary"><%= article.category.name %>
-         </div>
-         <div class="article-country">
-           <h2>都道府県<h2><span class="tag is-primary"><%= article.country.name %></span>
-         </div>
-         <div class="article-text">
-           <h2>コンテンツ</h2><span class="tag is-primary"><%= article.instruction %></span>
-          </div>
+         <div class="content">
+           <table class="table is-narrow">
+             <tr>
+              <th>カテゴリー</th>
+              <td><%= article.category.name %></td>
+             </tr>
+                
+              <tr>
+               <th>都道府県</th>
+               <td><%=article.country.name%>
+             </tr>
+
+              <tr>
+                <th>コンテンツ</th>
+                <td><%=article.instruction%>
+              </tr>
+           </table>
+        </div>
+  
 
           <div class="bottons">
             <%=link_to "詳細を見る",article_path(article), class: "button is-info is-light" %>
