@@ -1,0 +1,48 @@
+<h4 class="title is-4 ">投稿詳細</h4>
+
+<div class="card">
+  <div class="card-image">
+     <figure class="image is-5by4">
+        <%= image_tag @article.image, class: "article-img" %>
+      </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+         <p class="title is-4"><%= @article.instruction %></p>
+      </div>
+      </div>
+        <div class="content">
+          <table class="table is-narrow">
+            <tr>
+             <th>投稿者</th>
+             <td><%= @article.user.nickname%></td>
+            </tr>
+            <tr>
+              <th>カテゴリー</th>
+              <td><%= @article.category.name %></td>
+            </tr>
+                
+            <tr>
+              <th>都道府県</th>
+              <td><%=@article.country.name%>
+            </tr>
+          </table>
+
+           <footer class="card-footer">
+              <% if @article.user.id == current_user.id %>
+                <%= link_to "編集する", edit_article_path(@article), class: "card-footer-item" %>
+              <% end %>
+           </footer>
+         </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  
+
+
+    
