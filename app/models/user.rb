@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    validates :email, uniqueness: true, format: {with: /@.+/, message: "は＠を含んでください"}
+    validates :email, uniqueness: { case_sensitive: true }, format: {with: /@.+/, message: "は＠を含んでください"}
     validates :birthday
   end
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze

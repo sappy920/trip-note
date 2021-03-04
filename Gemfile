@@ -67,4 +67,4 @@ gem 'pry-rails'
 
 gem "bulma-rails"
 
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave'
