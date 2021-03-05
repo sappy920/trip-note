@@ -4,11 +4,14 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if @user != current_user
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
     if @user.update!(user_params)
-        redirect_to user_path(@user)
+        redirect_to root_path
     else
       render :edit
     end
