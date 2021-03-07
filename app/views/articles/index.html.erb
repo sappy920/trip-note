@@ -27,10 +27,12 @@
   
 
           <div class="bottons">
-            <%=link_to "詳細を見る",article_path(article), class: "button is-info is-light" %>
+           <% if user_signed_in? %>
+             <%=link_to "詳細を見る",article_path(article), class: "button is-info is-light" %>
+           <% end%>
           </div>
 
-         <% end %>
+         <% end %> 
    </div>
   </div>
           

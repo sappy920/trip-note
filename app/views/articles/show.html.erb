@@ -34,18 +34,25 @@
           </table>
 
 
-          <div class="card-content">
-            <div class="media">
-               <div class="media-content">
-                <% if user_signed_in? %>
-                  <%= form_with(model: [@article, @comment], local: true) do |form| %>
-                  <%= form.text_area :body, class:"textarea" %>
-                 <%= form.submit "SEND" , class:"button is-warning"%>
-              <% end %>
-              <% else %>
-               <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-             <% end %>
-           </div>
+          <div class="media-content">
+            <div class="field">
+               <p class="control">
+                 <% if user_signed_in? %>
+                   <%= form_with(model: [@article, @comment], local: true) do |form| %>
+                   <%= form.text_area :text, class:"textarea" %>
+                   
+                 <% end %>
+               </p>
+                 <% else %>
+                  <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+                 <% end %>
+            </div>
+            <div class="field">
+               <p class="control">
+                  <button class="button">送信</button>
+               </p>
+             </div>
+          </div>
 
       
   <div class="card-content">
