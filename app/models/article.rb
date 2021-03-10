@@ -5,13 +5,13 @@ class Article < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
-  belongs_to :country
+  belongs_to :prefecture
 
   
   with_options presence: true do
     validates :instruction, :image
-    validates :category_id, :country_id, numericality: { other_than: 0}
+    validates :category_id, :prefecture_id, numericality: { other_than: 0}
   end
 
-  
+
 end
