@@ -46,13 +46,12 @@
 
         <div class="weight-bold-text">
           国名
-          <span class="indispensable"></span>
+          <span class="indispensable">必須</span>
         </div>
         <%= f.country_select :country, selected: "JP" %>
 
         <div class="weight-bold-text">
           都道府県
-          <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {class:"select-box", id:"article-counrty"}) %>
       </div>

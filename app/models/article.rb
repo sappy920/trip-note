@@ -9,8 +9,8 @@ class Article < ApplicationRecord
 
   
   with_options presence: true do
-    validates :instruction, :image
-    validates :category_id, :prefecture_id, numericality: { other_than: 0}
+    validates :instruction, :image, :country
+    validates :category_id,  numericality: { other_than: 0}
   end
 
 
