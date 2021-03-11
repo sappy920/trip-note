@@ -44,7 +44,7 @@
                <p class="control">
                  <% if user_signed_in? %>
                    <%= form_with(model: [@article, @comment], local: true) do |form| %>
-                   <%= form.text_area :text, class:"textarea" %>
+                   <%= form.text_area :text, class:"textarea", placeholder: "コメントする"%>
             </div>  
               <div class="field">
                 <p class="control">
@@ -63,31 +63,22 @@
   <div class="card-content">
     <div class="media">
        <div class="media-content">
-        <h4>＜コメント一覧＞</h4>
+        <% if @article.comments.present? %>
+          <h4>＜コメント一覧＞</h4>
+        <% end%>
         <% @comments.each do |comment| %>
           <p>
             <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
             <%= comment.text %>
           </p>
           <% if comment.user.id == @article.user.id %>
-            <%= link_to "コメント削除", article_comment_path(@article, comment), method: :delete %>
+            <%= link_to article_comment_path(@article, comment), method: :delete, class:"panel-block" do %>
+              <span class="panel-icon">
+                <i class="fas fa-trash"></i>
+              </span>
+              コメントを削除する
+            <% end %>
           <% end %>
         <% end %>
   </div>
-
-   <div class="card-content">
-      <div class="media">
-        <div class="media-content">
-          <% if @article.user.id == current_user.id %>
-             <%= link_to "投稿を編集する", edit_article_path(@article), class: "card-footer-item" %>
-             <%= link_to "投稿を削除する", article_path(@article.id), method: :delete, class:'card-footer-item' %>
-          <% end %>
-        </div>
-      </div>
-   </div>
 </div>
-  
-  
-
-
-    

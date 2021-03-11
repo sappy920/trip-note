@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-        redirect_to articles_path
+        redirect_to article_path(@article)
     else
         redirect_to root_path
     end
