@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :destroy]
+  before_action :set_article, only: [:show, :destroy, :edit, :update]
+
   def index
     @articles = Article.all
   end
@@ -22,6 +23,22 @@ class ArticlesController < ApplicationController
     @comment = Comment.new
     @comments = @article.comments.includes(:user)
   end
+
+  def edit
+    if current_user.id != @article.user_id
+      redirect_to root_path
+    end
+  end
+
+  def update
+    if @article.update(article_params)
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
+  end
+
+
 
   def destroy
     @article.destroy

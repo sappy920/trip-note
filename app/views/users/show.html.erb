@@ -1,6 +1,7 @@
 <h1 class="title">マイページ</h1>
 
 
+
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
@@ -15,7 +16,7 @@
             <table class="table is-fullwidth">
               <tr>
                 <td class="is-size-4">
-                  <strong><%= @user.nickname %></strong>
+                   <strong><%= @user.nickname %></strong>
                 </td>
               <% if @user.id == current_user.id %>  
                 <td class="is-size-4">
@@ -58,7 +59,7 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <%= link_to articles_path(article), class: "panel-block" do %>
+                  <%= link_to article_path(article), class: "panel-block" do %>
                     <span class="panel-icon">
                       <i class="fas fa-eye" aria-hidden="true"></i>
                     </span>
