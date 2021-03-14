@@ -1,0 +1,12 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+       birthday: 誕生日
+     article:
+       instruction: 写真の説明
+       image: 写真
+       Category: カテゴリー
+       country: 国名
+       prefecture: 都道府県

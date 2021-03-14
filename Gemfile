@@ -70,3 +70,5 @@ gem "bulma-rails"
 gem 'carrierwave'
 
 gem 'country_select', require: 'country_select_without_sort_alphabetical'
+
+gem 'rails-i18n'
