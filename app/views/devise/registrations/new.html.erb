@@ -16,6 +16,14 @@
     </div>
           <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) taro", maxlength:"40" %>
     </div>
+    
+
+  <div class="form-group">
+    <div class="form-text-wrap">
+      <label class="form-text">プロフィール画像</label>
+    </div>
+        <%= f.file_field :avatar %>
+    </div>
 
 
   <div class="form-group">
