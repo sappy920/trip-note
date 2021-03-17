@@ -6,11 +6,13 @@
     <h2 class="items-sell-title">投稿内容を入力</h2>
     <%= form_with model: @article, local: true do |f| %>
     
+
+       <%=render 'shared/error_messages', model: f.object %>
                  
     <%# 画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
-        思い出の写真
+        旅の写真
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
@@ -30,6 +32,24 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :instruction, class:"items-text", id:"item-info", placeholder:"写真の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+
+    <div class="new-items">
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          現地の天気・服装
+        </div>
+        <%= f.text_area :weather, class:"items-text", id:"item-info", placeholder:"旅行先の天気や服装について", rows:"3"%>
+      </div>
+    </div>
+
+    <div class="new-items">
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          これから旅行する人へのアドバイス
+        </div>
+        <%= f.text_area :advice, class:"items-text", id:"item-info", placeholder:"例)ハワイ旅行には事前にESTAの取得が必要です。", rows:"5" %>
       </div>
     </div>
     <%# 説明 %>

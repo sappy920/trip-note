@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2021_03_10_071014) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "country"
+    t.text "weather"
+    t.text "advice"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 

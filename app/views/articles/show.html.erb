@@ -11,11 +11,39 @@
             </figure>
          </div>
          <div class="card-content">
-          <div class="media">
-             <div class="media-content">
-               <p class="title is-4"><%= @article.instruction %></p>
-             </div>
-          </div>
+           <div class="media">
+              <div class="media-content">
+                <p>
+                 <small>写真の説明</small>
+                 <br>
+                 <strong><%= @article.instruction %></strong>
+                </p>
+              </div>
+            </div>
+            <div class="media">
+               <div class="media-content">
+                 <p>
+                   <small>現地の天気・服装</small>
+                   <br>
+                   <strong><%= @article.weather%></strong>
+                  </P>
+               </div>
+            </div>
+             
+            <div class="media">
+               <div class="media-content">
+                 <p>
+                   <small>これから旅行する人へのアドバイス</small>
+                   <br>
+                   <strong><%= @article.advice%></strong>
+                  </P>
+               </div>
+            </div>
+
+ 
+
+
+
           <div class="content">
             <table class="table is-narrow">
               <tr>
