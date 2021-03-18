@@ -1,0 +1,38 @@
+  <div class="card-content">
+    <div class="content">
+       <% @articles.each do |article| %>
+         <div class='article-img-content'>
+           <%= image_tag  article.image, class: "article-img" %>
+         </div>
+         <div class="content">
+           <table class="table is-narrow">
+             <tr>
+              <th>カテゴリー</th>
+              <td><%= article.category.name %></td>
+             </tr>
+                
+              <tr>
+               <th>都道府県</th>
+               <td><%=article.prefecture.name%>
+             </tr>
+
+              <tr>
+                <th>コンテンツ</th>
+                <td><%=article.instruction%>
+              </tr>
+           </table>
+        </div>
+  
+
+          <div class="bottons">
+           <% if user_signed_in? %>
+             <%=link_to "詳細を見る",article_path(article), class: "button is-info is-light" %>
+           <% end%>
+          </div>
+
+         <% end %> 
+   </div>
+  </div>
+
+
+

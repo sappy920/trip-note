@@ -24,6 +24,10 @@ class ArticlesController < ApplicationController
     @comments = @article.comments.includes(:user)
   end
 
+  def search
+    @articles = Article.search(params[:keyword])
+  end
+
   def edit
     if current_user.id != @article.user_id
       redirect_to root_path

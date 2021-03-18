@@ -13,5 +13,13 @@ class Article < ApplicationRecord
     validates :category_id,  numericality: { other_than: 0}
   end
 
+  def self.search(search)
+    if search != ""
+      Article.where('instruction LIKE(?)', "%#{search}%")
+    else
+      Article.all
+    end
+  end
+
 
 end
