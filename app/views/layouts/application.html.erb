@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -74,7 +74,7 @@
                <div class="field is-grouped">
                  <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
                    <%= form.text_field :keyword, class: "search-input", placeholder: "投稿を検索する" , autofocus: true%>
-                   <%= form.submit "検索", class: "button is-primary" %>
+                   <%= form.submit "検索", class: "button is-primary is-light" %>
                  <% end %>          
               </div>
            </div>
