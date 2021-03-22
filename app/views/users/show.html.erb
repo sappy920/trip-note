@@ -1,5 +1,10 @@
-<h1 class="title">マイページ</h1>
-
+<section class="hero is-small">
+  <div class="hero-body">
+    <p class="title">
+      マイページ
+    </p>
+  </div>
+</section>
 
 
 <section class="section">
@@ -7,30 +12,37 @@
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="columns is-centered">
-         <div class="card">
-              <figure class="media-left" >
-               <P class="image is-128x128">
-                 <%= image_tag @user.avatar.url, class: "profile_image is-rounded" %> 
-               </p>
-              </figure>
-           <div class="card-content">
-             <div class="media">
-              <div class="media-content">
-                 <p>
-                   <small>ニックネーム</small>
-                   <br>
-                     <strong><%= @user.nickname %></strong>
-                   <br>
-                     <small>自己紹介</small>
-                   <br>
-                     <strong><%= @user.profile %></strong>
-                   <br>
-                     <% if @user.id == current_user.id %> 
-                       <%= link_to "編集", edit_user_path(@user), class: "button is-primary" %>
-                     <% end %> 
-                  </p> 
-            </div>
-           </div>
+          <div class="column is-4">
+            <figure class="image is-128x128"  style="margin-left: auto; margin-right: auto;">
+                <%= image_tag @user.avatar.url, class: "profile_image is-rounded" %> 
+            </figure>
+          </div>
+          <div class="column is-8">
+            <table class="table is-fullwidth">
+              <tr>
+                <th>
+                  <small>ニックネーム</small>
+                </th>
+              </tr>
+              <tr>
+                <td class="is-size-4">
+                   <strong><%= @user.nickname %></strong>
+                </td>
+              </tr>
+              <% if @user.id == current_user.id %>  
+                <td>
+                    <%= link_to "編集", edit_user_path(@user), class: "button is-primary" %>
+                </td>
+              <% end %> 
+              </tr>
+            </table>
+            <table class="table is-fullwidth">
+              <tr>
+                <td>
+                  <%= @user.profile %>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
@@ -75,6 +87,7 @@
                       この投稿を削除する
                     <% end %>
                   <% end %>
+                </div>
               </div>
             </div>
           </div>
