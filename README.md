@@ -42,9 +42,9 @@ https://trip-note-29613.herokuapp.com/
 
 # 実装した機能についてのGIF
 
-[トップページと投稿一覧機能](https://gyazo.com/b041aef1197b36243e0131583fef7048)
-[写真投稿機能](https://gyazo.com/014bc811f286c9cfca09676d836c43f8)
-[マイページ閲覧機能](https://gyazo.com/69a7fc2e8cb5930edd9ea25c9a78bf87)
+* [トップページと投稿一覧機能](https://gyazo.com/b041aef1197b36243e0131583fef7048)
+* [写真投稿機能](https://gyazo.com/014bc811f286c9cfca09676d836c43f8)
+* [マイページ閲覧機能](https://gyazo.com/69a7fc2e8cb5930edd9ea25c9a78bf87)
 
 
 
